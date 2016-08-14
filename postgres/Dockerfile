@@ -22,7 +22,6 @@ COPY conf/pg_hba.conf /
 
 RUN echo "sh /inject_pg_hba.conf.sh" >> /docker-entrypoint-initdb.d/setup-schema.sh
 
-#RUN mkdir -p /docker-entrypoint-initdb.d
 COPY sh/initdb-postgis.sh /docker-entrypoint-initdb.d/postgis.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
