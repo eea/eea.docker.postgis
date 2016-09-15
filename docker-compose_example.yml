@@ -51,3 +51,8 @@ postgres:
         changemechangemechangemechangemechangemechangemechangemechangeme
         -----END CERTIFICATE-----
 
+    PG_HBA: |-
+       local   changeme         changeme         changeme          ident
+       host    changeme         changeme         changeme          md5
+       hostssl    changeme         changeme         changeme          md5
+
