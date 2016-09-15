@@ -17,7 +17,6 @@ COPY sh/create_ssl_files.sh /
 COPY sh/inject_pg_hba.conf.sh /
 
 COPY conf/ssl.conf /postgresql.conf.d/
-COPY conf/pg_hba.conf /
 
 RUN sed -i -e 's/exec gosu postgres "$@"/sh \/inject_pg_hba.conf.sh \&\nexec gosu postgres "$@"/g' /docker-entrypoint.sh
 RUN sed -i -e 's/exec gosu postgres "$@"/sh \/create_ssl_files.sh \&\nexec gosu postgres "$@"/g' /docker-entrypoint.sh
