@@ -24,6 +24,8 @@ postgres:
     POSTGRES_CONFIG_checkpoint_completion_target: 0.9
     POSTGRES_CONFIG_wal_buffers: 16MB
     POSTGRES_CONFIG_default_statistics_target: 500
+    #enable the following only with 9.6
+    #POSTGRES_CONFIG_max_parallel_workers_per_gather: 2
 
     SERVER_NAME: changeme
 
