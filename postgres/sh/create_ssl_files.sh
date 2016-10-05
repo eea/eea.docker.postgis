@@ -3,6 +3,9 @@ set -e
 
 mkdir -p /var/ssl
 rm -f /var/ssl/*
+
+echo "creating ssl certificates"
+
 echo "$SERVER_CRT" > /var/ssl/server.crt
 echo "$SERVER_KEY" > /var/ssl/server.key
 echo "$ROOT_CRT" > /var/ssl/root.crt
