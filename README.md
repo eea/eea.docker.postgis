@@ -1,4 +1,6 @@
-# eea.docker.postgis
+# eea.docker.postgis - tag v9.5_2.2
+
+PostgreSQL 9.5 with PostGIS 2.2
 
 running the container with docker-compose will make you life easy.
 
