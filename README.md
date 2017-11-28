@@ -1,12 +1,12 @@
-# eea.docker.postgis - tag v9.6_2.3
+# eea.docker.postgis - tag v9.6_2.4
 
-PostgreSQL 9.6 with PostGIS 2.3
+PostgreSQL 9.6 with PostGIS 2.4
 
 running the container with docker-compose will make you life easy.
 
 ## docker-compose.yml setup
 
-setting the environment variables for certificates is mandatory.
+setting ssl certificates is mandatory.
 setting the variable for pg_hba is mandatory as well.
 
 ## Release to production

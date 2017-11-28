@@ -2,8 +2,7 @@ FROM eeacms/postgres:9.6
 
 MAINTAINER michimau <mauro.michielon@eea.europa.eu>
 
-ENV POSTGIS_MAJOR 2.3
-#ENV POSTGIS_VERSION 2.3.3+dfsg-1.pgdg80+1
+ENV POSTGIS_MAJOR 2.4
 
 RUN apt-get update \
       && apt-get install -y --no-install-recommends \
