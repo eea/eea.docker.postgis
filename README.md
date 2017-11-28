@@ -1,7 +1,7 @@
 # eea.docker.postgis - tag v9.6_2.3
 
 PostgreSQL 9.6 with PostGIS 2.3
-
+ 
 running the container with docker-compose will make you life easy.
 
 ## docker-compose.yml setup
