@@ -3,15 +3,23 @@ FROM eeacms/postgres:9.6
 MAINTAINER michimau <mauro.michielon@eea.europa.eu>
 #file origin: https://github.com/appropriate/docker-postgis/blob/master/9.5-2.2/Dockerfile - Mike Dillon <mike@appropriate.io>
 
-ENV POSTGIS_MAJOR 2.3
-ENV POSTGIS_VERSION 2.3.0+dfsg-2.pgdg80+1
+ENV POSTGIS_MAJOR 2.4
+#ENV POSTGIS_VERSION 2.3.0+dfsg-2.pgdg80+1
+ENV POSTGIS_VERSION 2.3.3+dfsg-1.pgdg80+1
+
+#RUN apt-get update \
+#      && apt-get install -y --no-install-recommends \
+#           postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR=$POSTGIS_VERSION \
+#           postgis=$POSTGIS_VERSION \
+#           postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR-scripts \
+#           postgresql-$PG_MAJOR-postgis-scripts \
+#           vim \
+#      && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update \
       && apt-get install -y --no-install-recommends \
-           postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR=$POSTGIS_VERSION \
-           postgis=$POSTGIS_VERSION \
+           postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR \
            postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR-scripts \
-           postgresql-$PG_MAJOR-postgis-scripts \
            vim \
       && rm -rf /var/lib/apt/lists/*
 

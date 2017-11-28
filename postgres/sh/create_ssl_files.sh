@@ -6,9 +6,9 @@ rm -f /var/ssl/*
 
 echo "creating ssl certificates"
 
-echo "$SERVER_CRT" > /var/ssl/server.crt
-echo "$SERVER_KEY" > /var/ssl/server.key
-echo "$ROOT_CRT" > /var/ssl/root.crt
+cp /ssl/server.crt /var/ssl/server.crt
+cp /ssl/server.key /var/ssl/server.key
+cp /ssl/chain.crt /var/ssl/root.crt
 
 chmod 400 /var/ssl/*
 
