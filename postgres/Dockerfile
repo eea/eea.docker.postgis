@@ -1,4 +1,4 @@
-FROM eeacms/postgres:9.6
+FROM eeacms/postgres:9.6-3.4
 
 MAINTAINER michimau <mauro.michielon@eea.europa.eu>
 
