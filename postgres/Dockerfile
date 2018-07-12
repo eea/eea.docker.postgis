@@ -11,16 +11,18 @@ RUN apt-get update \
            vim \
       && rm -rf /var/lib/apt/lists/*
 
-COPY sh/create_ssl_files.sh /
-COPY sh/inject_pg_hba.conf.sh /
 
-COPY conf/additional.conf /postgresql.conf.d/
+RUN mkdir -p /docker-entrypoint-initdb.d
+#keep initdb-postgis.sh as not executable!
+COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/postgis.sh
 
-RUN sed -i -e 's/exec gosu postgres "$@"/sh \/inject_pg_hba.conf.sh \&\nexec gosu postgres "$@"/g' /master-entrypoint.sh
-RUN sed -i -e 's/exec gosu postgres "$@"/sh \/create_ssl_files.sh \&\nexec gosu postgres "$@"/g' /master-entrypoint.sh
+COPY ./create_ssl_files.sh /
+COPY ./inject_pg_hba.conf.sh /
 
-COPY sh/initdb-postgis.sh /docker-entrypoint-initdb.d/postgis.sh
+RUN sed -i -e 's/exec "$@"/sh \/inject_pg_hba.conf.sh \&\nexec "$@"/g' /master-entrypoint.sh
+RUN sed -i -e 's/exec "$@"/sh \/create_ssl_files.sh \&\nexec "$@"/g' /master-entrypoint.sh
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+COPY conf/ssl.conf /postgresql.conf.d/
 
-CMD ["postgres"]
+RUN mkdir -p /var/ssl
+RUN chown -R postgres.postgres /var/ssl
