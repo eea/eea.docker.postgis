@@ -9,6 +9,7 @@ RUN apt-get update \
            postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR \
            postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR-scripts \
            vim \
+           ca-certificates \
       && rm -rf /var/lib/apt/lists/*
 
 
