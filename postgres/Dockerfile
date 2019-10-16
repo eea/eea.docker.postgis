@@ -16,14 +16,11 @@ RUN apt-get update \
 RUN mkdir -p /docker-entrypoint-initdb.d
 #keep initdb-postgis.sh as not executable!
 COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/postgis.sh
-
 COPY ./create_ssl_files.sh /
-COPY ./inject_pg_hba.conf.sh /
 
-RUN sed -i -e 's/exec "$@"/sh \/inject_pg_hba.conf.sh \&\nexec "$@"/g' /master-entrypoint.sh
 RUN sed -i -e 's/exec "$@"/sh \/create_ssl_files.sh \&\nexec "$@"/g' /master-entrypoint.sh
 
 COPY conf/ssl.conf /postgresql.conf.d/
 
-RUN mkdir -p /var/ssl
-RUN chown -R postgres.postgres /var/ssl
+RUN mkdir -p /var/ssl && \
+    chown -R postgres.postgres /var/ssl
